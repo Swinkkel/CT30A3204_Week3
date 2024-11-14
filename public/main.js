@@ -1,7 +1,7 @@
 
 function initialize() {
 
-    const addUserButton = document.getElementById("add-user")
+    const addUserButton = document.getElementById("postUser")
 
     addUserButton.addEventListener("click", async function() {
         const username = document.getElementById("name")
