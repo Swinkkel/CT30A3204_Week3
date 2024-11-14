@@ -15,4 +15,13 @@ router.get("/echo/:id", (req: Request, res: Response) => {
     })
 })
 
+router.post("/sum", (req: Request, res: Response) => {
+    const numbers: number[] = req.body.numbers
+
+    const sum = numbers.reduce((acc, num) => acc + num, 0)
+    res.json({
+        sum
+    })
+})
+
 export default router
