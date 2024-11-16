@@ -40,17 +40,10 @@ router.post("/users", (req: Request, res: Response) => {
     res.json({
         message: "User successfully added"
     })
-
-    console.log("Add " + users)
 })
 
 router.get("/users", (req: Request, res: Response) => {
-
-    console.log("Get " + users)
-
-    const data = JSON.stringify(users);
-
-    res.status(201).json(data)
+    res.status(201).json(users)
 })
 
 export default router

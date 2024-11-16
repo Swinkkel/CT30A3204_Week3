@@ -4,15 +4,15 @@ function initialize() {
     const addUserButton = document.getElementById("postUser")
 
     addUserButton.addEventListener("click", async function() {
-        const username = document.getElementById("name")
-        const email = document.getElementById("email")
+        const name = document.getElementById("name").value
+        const email = document.getElementById("email").value
 
-        const data = await fetch("http://localhost:3000/users", {
+        const data = await fetch("/users", {
             method: "post",
             headers: {
                 "Content-type": "application/json"
             },
-            body: '{"username": "'+username+'", "email": "'+email+'"}'
+            body: JSON.stringify({name, email})
         })
 
         const json = await data.json()
@@ -23,19 +23,14 @@ function initialize() {
 
     getUsersButton.addEventListener("click", async function() {
         try {
-            const response = await fetch("http://localhost:3000/users")
+            const response = await fetch('/users') 
             const users = await response.json()
-
-            console.log(users)
-
-            const list = document.getElementById("userList")
-
-            list.innerHTML = ""
-
-            users.forEach(user => {
-                const li = document.createElement("li");
-                li.textContent = `${user.name} - ${user.email}`
-                list.appendChild(li)
+            const userList = document.getElementById('userList') 
+            userList.innerHTML = '' 
+            users.forEach(user => { 
+                const listItem = document.createElement('li') 
+                listItem.textContent = `${user.name} - ${user.email}` 
+                userList.appendChild(listItem); 
             })
         } catch (error) {
             console.error("error:", error)
