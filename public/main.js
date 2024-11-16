@@ -27,12 +27,13 @@ function initialize() {
         try {
             const response = await fetch('/users') 
             const users = await response.json()
-            const userList = document.getElementById('userList') 
+
+            const userList = document.getElementById('userList')
             userList.innerHTML = '' 
             users.forEach(user => { 
-                const listItem = document.createElement('li') 
-                listItem.textContent = `${user.name} - ${user.email}` 
-                userList.appendChild(listItem); 
+                const listItem = document.createElement('li')
+                listItem.textContent = `${user.name} - ${user.email}`
+                userList.appendChild(listItem);
             })
         } catch (error) {
             console.error("error:", error)
