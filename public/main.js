@@ -20,7 +20,7 @@ function initialize() {
         console.log(json)
     })
 
-    const getUsersButton = document.getElementById("getUser")
+    const getUsersButton = document.getElementById("getUsers")
     getUsersButton.addEventListener("click", async (event) => {
         event.preventDefault()
 
