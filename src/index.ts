@@ -1,7 +1,11 @@
 import {Request, Response, Router} from "express"
-import { TUser} from '../types/TUser'
 
 const router: Router = Router()
+
+export type TUser = {
+    name: string
+    email: string
+}
 
 const users: TUser[] = [];
 
