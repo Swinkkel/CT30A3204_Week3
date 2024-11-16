@@ -26,7 +26,8 @@ function initialize() {
 
         try {
             const response = await fetch('/users') 
-            const users = await response.json()
+            const usersJson = await response.json()
+            const users = usersJson.users
 
             const userList = document.getElementById('userList')
             userList.innerHTML = '' 
