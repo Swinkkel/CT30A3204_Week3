@@ -2,7 +2,9 @@
 function initialize() {
 
     const addUserButton = document.getElementById("postUser")
-    addUserButton.addEventListener("click", async function() {
+    addUserButton.addEventListener("click", async function(event) {
+        event.preventDefault()
+
         const name = document.getElementById("name").value
         const email = document.getElementById("email").value
 
@@ -19,7 +21,9 @@ function initialize() {
     })
 
     const getUsersButton = document.getElementById("getUsers")
-    getUsersButton.addEventListener("click", async function() {
+    getUsersButton.addEventListener("click", async function(event) {
+        event.preventDefault()
+        
         try {
             const response = await fetch('/users') 
             const users = await response.json()
