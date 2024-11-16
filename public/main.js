@@ -1,15 +1,15 @@
 
 function initialize() {
 
-    const addUserButton = document.getElementById("postUser")
-    addUserButton.addEventListener("click", async function(event) {
+    const userForm = document.getElementById("userForm")
+    userForm.addEventListener("submit", async (event) => {
         event.preventDefault()
 
         const name = document.getElementById("name").value
         const email = document.getElementById("email").value
 
         const data = await fetch("/users", {
-            method: "post",
+            method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
@@ -21,9 +21,9 @@ function initialize() {
     })
 
     const getUsersButton = document.getElementById("getUsers")
-    getUsersButton.addEventListener("click", async function(event) {
+    getUsersButton.addEventListener("click", async (event) => {
         event.preventDefault()
-        
+
         try {
             const response = await fetch('/users') 
             const users = await response.json()
