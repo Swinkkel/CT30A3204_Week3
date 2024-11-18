@@ -5,8 +5,13 @@ function initialize() {
     userForm.addEventListener("submit", async (event) => {
         event.preventDefault()
 
-        const name = document.getElementById("name").value
-        const email = document.getElementById("email").value
+        const nameElement = document.getElementById("name")
+        const name = nameElement.value
+        nameElement.value = ""
+
+        const emailElement = document.getElementById("email")
+        const email = emailElement.value
+        emailElement.value = ""
 
         const data = await fetch("/users", {
             method: "POST",
